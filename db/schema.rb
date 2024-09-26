@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_26_114355) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_26_115809) do
   create_table "flats", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -20,6 +20,27 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_26_114355) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_flats_on_user_id"
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "description"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_hotels_on_user_id"
+  end
+
+  create_table "houses", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "price"
+    t.string "description"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_houses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,4 +56,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_26_114355) do
   end
 
   add_foreign_key "flats", "users"
+  add_foreign_key "hotels", "users"
+  add_foreign_key "houses", "users"
 end
