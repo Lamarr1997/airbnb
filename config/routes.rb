@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "home#index"
+  root "home#home"
   get "dashboards/myprofile", as: "myprofile"
   get "dashboards/about", as: "about"
 
