@@ -29,4 +29,24 @@ Faker::Config.locale = 'en'
   )
 end
 
+50.times do
+  House.create!(
+    name: Faker::Name.name,
+    address: Faker::Address.full_address,
+    price: Faker::Commerce.price(range: 0..100000.0, as_string: true),
+    description: Faker::Lorem.paragraph
+  )
+end
+
+50.times do
+  Hotel.create!(
+    name: Faker::Name.name,
+    address: Faker::Address.full_address,
+    price: Faker::Commerce.price(range: 0..1000.0, as_string: true),
+    description: Faker::Lorem.paragraph
+  )
+end
+
 puts 'flats and user has been created'
+
+puts 'Houses and Hotels created'
