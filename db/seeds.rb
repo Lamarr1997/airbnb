@@ -12,14 +12,21 @@ require 'faker'
 
 Faker::Config.locale = 'en'
 
+# user = User.create!(
+#   first_name: 'Kodak',
+#   last_name: 'Haitian',
+#   email: 'Kodak_Haitian@example.com',
+#   password: '123456'
+# )
+# puts "Created user: #{user.first_name}, #{user.last_name} #{user.email}"
 
 50.times do
   Flat.create!(
     name: Faker::Name.name,
-    address: Faker::Address.address,
+    address: Faker::Address.full_address,
     price: Faker::Commerce.price(range: 0..100000.0, as_string: true),
-    description: Faker::Description.description
+    description: Faker::Lorem.paragraph
   )
 end
 
-puts 'flats has been created'
+puts 'flats and user has been created'
