@@ -8,5 +8,18 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 #
+require 'faker'
 
-myuser = User.create(first_name: 'lamarr', last_name: 'paul', user_name: 'lammy', email: 'lp12345@test.com', password: '123456')
+Faker::Config.locale = 'en'
+
+
+50.times do
+  Flat.create!(
+    name: Faker::Name.name,
+    address: Faker::Address.address,
+    price: Faker::Commerce.price(range: 0..100000.0, as_string: true),
+    description: Faker::Description.description
+  )
+end
+
+puts 'flats has been created'
